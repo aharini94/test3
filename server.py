@@ -47,13 +47,13 @@ def rand():
     cur = con.cursor()
     query1_start_time = time.time()
     #for i in range(1,int(num)+1):
-    i=1
-    while i < int(num) + 1:
-        rand1 = ['0', '1', '2', '3', '4', '5', '6', '7']
-        rand2 = random.choice(rand1)
-        mag = int(rand2)
-        cur.execute('SELECT * from assign3table where mag>?', (mag,))
-        i = i + 1
+    # i=1
+    # while i < int(num) + 1:
+    #     rand1 = ['0', '1', '2', '3', '4', '5', '6', '7']
+    #     rand2 = random.choice(rand1)
+    #     mag = int(rand2)
+    cur.execute('SELECT * from assign3table where mag>?', (2,))
+    #     i = i + 1
     rows = cur.fetchall()
     count = 0
     for row in rows:
@@ -70,10 +70,10 @@ def randloc():
     con.row_factory = sql.Row
     cur = con.cursor()
     query2_start_time = time.time()
-    for i in range(1,int(num)+1):
-        rand = ['hv' , 'ci' , 'ak' , 'nn' , 'nc' , 'us' , 'pr' , 'nm' , 'uw' , 'se' , 'mb' , 'uu' , 'ld' , 'tul' , 'ismp' , 'ott']
-        loc=random.choice(rand)
-        cur.execute('SELECT * from assign3table where locationSource=?',(loc,))
+    # for i in range(1,int(num)+1):
+    #     rand = ['hv' , 'ci' , 'ak' , 'nn' , 'nc' , 'us' , 'pr' , 'nm' , 'uw' , 'se' , 'mb' , 'uu' , 'ld' , 'tul' , 'ismp' , 'ott']
+    #     loc=random.choice(rand)
+    cur.execute('SELECT * from assign3table where locationSource=?',(loc,))
     row1=cur.fetchall()
     count1 = 0
     for row in row1:
