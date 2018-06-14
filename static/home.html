@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<body>
+<center>
+<header> <h1> HARINI AKKANAPRAGADA</h1> </header>
+        <center> <h2> 1001580917</h2></center>
+<br> <br>
+<h2><center><a href = "/list">Display details of ALL earthquake</a></center></h2>
+    <form action="{{url_for('list')}}" method="POST">
+       {{ total4 }}
+      <table border = 1>
+         <thead>
+            <td>time</td>
+            <td>date</td>
+            <td>latitude</td>
+            <td>longitude</td>
+            <td>depth</td>
+            <td>mag</td>
+            <td>magType</td>
+            <td>nst</td>
+            <td>gap</td>
+            <td>dmin</td>
+            <td>rms</td>
+            <td>net</td>
+            <td>id</td>
+            <td>updated</td>
+            <td>place</td>
+            <td>type</td>
+            <td>horizontalError</td>
+            <td>depthError</td>
+            <td>magError</td>
+            <td>magNst</td>
+            <td>status</td>
+            <td>locationSource</td>
+            <td>magSource</td>
+         </thead>
+
+         {% for row in rows4 %}
+         <tr>
+            <td>{{row["time"]}}</td>
+            <td>{{row["date"]}}</td>
+            <td>{{row["latitude"]}}</td>
+            <td> {{ row["longitude"]}}</td>
+            <td>{{row["depth"]}}</td>
+            <td>{{row["mag"]}}</td>
+            <td>{{row["magType"]}}</td>
+            <td>{{row["nst"]}}</td>
+            <td>{{row["gap"]}}</td>
+            <td>{{row["dmin"]}}</td>
+            <td>{{row["rms"]}}</td>
+            <td>{{row["net"]}}</td>
+            <td>{{row["id"]}}</td>
+            <td>{{row["updated"]}}</td>
+            <td>{{row["place"]}}</td>
+            <td>{{row["type"]}}</td>
+            <td>{{row["horizontalError"]}}</td>
+            <td>{{row["depthError"]}}</td>
+            <td>{{row["magError"]}}</td>
+            <td>{{row["magNst"]}}</td>
+            <td>{{row["status"]}}</td>
+            <td>{{row["locationSource"]}}</td>
+            <td>{{row["magSource"]}}</td>
+         {% endfor %}
+         </tr>
+      </table>
+    </form>
+    <br>
+    <br>
+   <h3> Random query generator: </h3>
+     Please enter the number of queries you wish to execute.
+     <form action="{{url_for('rand')}}" method="POST">
+      <input type="text" name="num" placeholder="Enter a number">
+         <input type="submit" name="Submit">
+         {{ query1_time_diff , count }}
+
+     </form>
+    <br>
+      Please enter the number of queries you wish to execute.
+      Enter a location source ['hv' , 'ci' , 'ak' , 'nn' , 'nc' , 'us' , 'pr' , 'nm' , 'uw' , 'se' , 'mb' , 'uu' , 'ld' , 'tul' , 'ismp' , 'ott']
+     <form action="{{url_for('randloc')}}" method="POST">
+      <input type="text" name="num" placeholder="Enter a number">
+               <input type="text" name="loc" placeholder="Enter a loc">
+         <input type="submit" name="Submit">
+         {{ query2_time_diff , count1}}
+     </form>
+    </center>
+</body>
+</html>
