@@ -1,16 +1,12 @@
-# import csv
 import os
 import time
 import random
 from math import ceil
 
 from flask import Flask, render_template, request
-# from numpy import var
-# from sqlalchemy import DATETIME
-# from werkzeug.utils import redirect
-
 app = Flask(__name__)
 import sqlite3 as sql
+#import pandas as pd
 dbc = sql.connect('database.db')
 #dataframe1 = pd.read_csv('equake.csv')
 # Referenced from https://stackoverflow.com/questions/43730422/how-to-split-one-column-into-multiple-columns-in-pandas-using-regular-expression
