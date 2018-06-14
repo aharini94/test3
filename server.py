@@ -1,6 +1,7 @@
 import os
 import time
 import random
+import redis
 from math import ceil
 
 from flask import Flask, render_template, request
@@ -77,6 +78,8 @@ def randloc():
     query2_time_diff = query2_end_time - query2_start_time
     return render_template("home.html",query2_time_diff=query2_time_diff, count1=count1)
 
-port = os.getenv('PORT', '5000')
+
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=int(port))
+    port = os.getenv('PORT', '5000')
+    app.run()
+    #host = '0.0.0.0', port = int(port)
