@@ -83,5 +83,5 @@ def randloc():
     return render_template("home.html",query2_time_diff=query2_time_diff, count1=count1)
 
 PORT = int(os.getenv('PORT','5000'))
-if __name__ == '__server__':
+if __name__ == '__main__':
     app.run(debug=True)
