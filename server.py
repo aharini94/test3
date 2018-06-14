@@ -6,14 +6,14 @@ from math import ceil
 from flask import Flask, render_template, request
 app = Flask(__name__)
 import sqlite3 as sql
-#import pandas as pd
+import pandas as pd
 dbc = sql.connect('database.db')
-#dataframe1 = pd.read_csv('equake.csv')
+dataframe1 = pd.read_csv('equake.csv')
 # Referenced from https://stackoverflow.com/questions/43730422/how-to-split-one-column-into-multiple-columns-in-pandas-using-regular-expression
-#dataframe1[['date', 'time']] = dataframe1['time'].str.split('T', expand=True)
-#dataframe1[['time']] = dataframe1['time'].str.split('.').str[0]
+dataframe1[['date', 'time']] = dataframe1['time'].str.split('T', expand=True)
+dataframe1[['time']] = dataframe1['time'].str.split('.').str[0]
 table_create_start_time = time.time()
-#dataframe1.to_sql('assign3table', dbc, if_exists='replace')
+dataframe1.to_sql('assign3table', dbc, if_exists='replace')
 table_create_end_time = time.time()
 
 @app.route('/')
@@ -77,6 +77,6 @@ def randloc():
     query2_time_diff = query2_end_time - query2_start_time
     return render_template("home.html",query2_time_diff=query2_time_diff, count1=count1)
 
-port = os.getenv('PORT', '8080')
+port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=int(port))
